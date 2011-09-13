@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-        Turtle Management is a student-teacher classroom management software
+        Turtle Management is a  classroom management software
     </h2>
     
 </asp:Content>
