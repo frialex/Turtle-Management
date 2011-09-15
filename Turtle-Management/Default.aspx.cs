@@ -13,8 +13,15 @@ namespace Turtle_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //string user = User.Identity.Name.ToString();            
-            //bool loggedin = User.Identity.IsAuthenticated;
+            
+            if (User.Identity.IsAuthenticated)
+            {
+                //Calendar main_cal = loginview.FindControl("main_cal") as Calendar;
+                //string key = Membership.GetUser(User.Identity.Name).ProviderUserKey.ToString();
+            }
+            
         }
+
+       
     }
 }
