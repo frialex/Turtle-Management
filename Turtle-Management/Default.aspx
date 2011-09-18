@@ -3,11 +3,11 @@
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="SidePannel">
     <asp:LoginView id="loginview" runat="server">
         <LoggedInTemplate>
-            <asp:Calendar ID="Calendar1" runat="server" BackColor="White" 
-                BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" 
+            <asp:Calendar ID="main_cal" runat="server" BackColor="White" 
+                BorderColor="Black" BorderStyle="Groove" CellSpacing="1" Font-Names="Verdana" 
                 Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth" 
                 Width="330px">
                 <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
@@ -22,7 +22,31 @@
             </asp:Calendar>
         </LoggedInTemplate>
         <AnonymousTemplate>
-            <p>Please Log in..</p>
+            <h1>Please Log in..</h1>
         </AnonymousTemplate>
    </asp:LoginView>
+</asp:Content>
+
+<asp:Content ID="MainContent" runat="server" ContentPlaceHolderID="MainContent" >
+    <asp:LoginView ID="mainContentLoginView" runat="server">
+        <LoggedInTemplate>            
+            <asp:GridView ID="classGrid" runat="server" CellPadding="4" ForeColor="#333333" 
+                GridLines="None" AutoGenerateColumns="False">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                <Columns>
+                    <asp:BoundField DataField="class_name" HeaderText="Class Name" />
+                </Columns>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+            </asp:GridView>
+        </LoggedInTemplate>
+    </asp:LoginView>
 </asp:Content>
