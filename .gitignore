@@ -1,0 +1,7 @@
+#Database 
+ASPNETDB.MDF
+aspnetdb_log.LDF
+
+#Temp files
+Turtle-Management/obj/
+Turtle-Management/bin/

@@ -1,5 +1,0 @@
-c:\users\fba\documents\visual studio 2010\Projects\Turtle-Management\Turtle-Management\bin\Turtle-Management.dll
-c:\users\fba\documents\visual studio 2010\Projects\Turtle-Management\Turtle-Management\bin\Turtle-Management.pdb
-c:\users\fba\documents\visual studio 2010\Projects\Turtle-Management\Turtle-Management\obj\Debug\ResolveAssemblyReference.cache
-c:\users\fba\documents\visual studio 2010\Projects\Turtle-Management\Turtle-Management\obj\Debug\Turtle-Management.dll
-c:\users\fba\documents\visual studio 2010\Projects\Turtle-Management\Turtle-Management\obj\Debug\Turtle-Management.pdb
