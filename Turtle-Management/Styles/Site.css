@@ -299,3 +299,9 @@ div.accountInfo
     display: inline;
     float: left;
 }
+
+.classGridView
+{   
+    margin: 20px;
+}
+

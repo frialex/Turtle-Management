@@ -44,8 +44,8 @@
             </asp:LoginView>
         </div>
         <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
             <asp:ContentPlaceHolder ID="SidePannel" runat="server" />
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div>
         <div class="clear">
         </div>

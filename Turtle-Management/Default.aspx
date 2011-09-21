@@ -31,7 +31,7 @@
     <asp:LoginView ID="mainContentLoginView" runat="server">
         <LoggedInTemplate>            
             <asp:GridView ID="classGrid" runat="server" CellPadding="4" ForeColor="#333333" 
-                GridLines="None" AutoGenerateColumns="False">
+                GridLines="None" AutoGenerateColumns="False" CssClass="classGridView">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField DataField="class_name" HeaderText="Class Name" />
@@ -48,5 +48,7 @@
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
         </LoggedInTemplate>
+        <AnonymousTemplate>
+        </AnonymousTemplate>
     </asp:LoginView>
 </asp:Content>
