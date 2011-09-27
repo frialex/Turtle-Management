@@ -35,7 +35,9 @@
                     AutoGenerateColumns="False" CssClass="classGridView">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
-                        <asp:BoundField DataField="class_name" HeaderText="Class Name" />
+                        <asp:HyperLinkField DataNavigateUrlFields="ClassId" 
+                            DataNavigateUrlFormatString="Class.aspx?classid={0}" DataTextField="class_name" 
+                            HeaderText="Enrolled Classes" />
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
