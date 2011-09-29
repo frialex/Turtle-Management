@@ -12,10 +12,9 @@ namespace Turtle_Management
     {
         public string turtle_user_name;
 
-        //static _Class()
+        //static void _Class()
         //{
-            
-            
+        //    CometWorker.OnClientConnected += new DefineClassObjects(CometWorker_OnClientConnected);
         //}
 
         static void CometWorker_OnClientConnected(ConnectionDetails details, ref Dictionary<string, object> classList)
