@@ -110,6 +110,7 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ChatApp.cs" />
     <Compile Include="Class.aspx.cs">
       <DependentUpon>Class.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
