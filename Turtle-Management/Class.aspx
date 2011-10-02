@@ -5,20 +5,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="SidePannel" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <div id="ChatBase" style="position: relative; left: 10px; top: 10px; width: 400px;
-        height: 400px; overflow-y: scroll; overflow-x: hidden; border: solid 1px #006699;
-        background-color: #336699;">
+    <div id="ChatBase" style="width: 400px;
+        height: 400px; overflow-y: scroll; overflow-x: hidden; border: solid 1px #006699;">
         <div id="Chats" class="white" style="margin: 0px; padding: 5px; width: 380px;">
-            PokeIn Chat Application<br />
+            Welcome to: CLASS NAME <br />
         </div>
     </div>
-    <div id="lbl" style="position: position; left: 10px; top: 417px;">
-        Username ::
-    </div>
-    <input id="info" style="position: relative; left: 90px; top: 415px; width: 250px;
-        height: 20px; border: solid 1px #006699;" type="text" />
+    <input id="info" style="position: relative; border: solid 1px #006699;" type="text" />
     <input type="button" id="btnChat" value="Send" style="position: relative;
-        left: 350px; top: 415px; cursor: pointer;" />
+       cursor: pointer;" />
 
  <script>
 
@@ -51,8 +46,12 @@
      var chatWind = document.getElementById("Chats");
      var chatBase = document.getElementById("ChatBase");
 
-     var user_name = "";
+     var user_name = "<%= turtle_user_name %>";
      var user_names = [];
+
+     if (user_name != "") {
+         Chat.SetName(user_name);
+     }
 
      btnChat.onclick = function () {
          if (user_name == "") {
@@ -82,14 +81,15 @@
          }
      }
 
-     info.onkeydown = function (ev) {
-         if (btnChat.disabled != "")
-             return;
-         var ev = ev || window.event;
-         if (ev.keyCode == 13) {
-             btnChat.onclick();
-         }
-     }
+//     info.onkeydown = function (ev) {
+//         if (btnChat.disabled != "")
+//             return;
+//         var ev = ev || window.event;
+//         if (ev.keyCode == 13) {
+//             btnChat.onclick();
+//         }
+//     }
+
 
      function ChatMessageFrom(chatMessage) {
          chatWind.innerHTML += "<strong>" + chatMessage.Username + "</strong>:: " + chatMessage.Message + "<br/>";

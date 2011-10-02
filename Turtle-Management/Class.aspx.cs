@@ -10,7 +10,7 @@ namespace Turtle_Management
 {
     public partial class Class : System.Web.UI.Page
     {
-        public string turtle_user_name;
+        protected string turtle_user_name;
 
         //static void _Class()
         //{
@@ -24,7 +24,7 @@ namespace Turtle_Management
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            turtle_user_name = User.Identity.Name;
+            turtle_user_name = User.Identity.Name.ToString();
             string ClassId = Request.QueryString["classid"];
 
             CometWorker.OnClientConnected += new DefineClassObjects(CometWorker_OnClientConnected);
