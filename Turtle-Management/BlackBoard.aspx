@@ -2,8 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     	<script type="text/javascript" src="Scripts/jquery-1.4.1.min.js"></script>
 		<script type="text/javascript" src="Scripts/jquery-1.4.1.js"></script>
-		
-    <script>
+		 <script src="Handler.aspx?ms=connect" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        document.OnPokeInReady = function () {
+            PokeIn.Start(function (status) {
+                if (status) {
+                    btnChat.disabled = "";
+                }
+            });
+        }
+
         window.onload = init;
 
         var isMouseDown = false;
@@ -23,7 +32,11 @@
             context.fillRect(x - 25, y - 25, 50, 50);
             //context.strokeRect(x-25,y-25,50,50);
             //drawArc(context,x,y);
-            return;
+
+            Draw.sendPoints(x, y);
+            
+            return; //why is this here??
+
             if (!window.started) {
                 context.beginPath();
                 context.moveTo(x, y);
@@ -99,6 +112,6 @@
 		
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server" >
-    <canvas class ='colorSpectrum' id='color-picker' width="400" height="400"></canvas>
+    <%--<canvas class ='colorSpectrum' id='color-picker' width="400" height="400" ></canvas>--%>
 	<button name = "clearButton" onclick="clearBoard();">clear board</button> 	
 </asp:Content>
