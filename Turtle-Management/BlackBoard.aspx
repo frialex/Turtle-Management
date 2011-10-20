@@ -8,12 +8,16 @@
         document.OnPokeInReady = function () {
             PokeIn.Start(function (status) {
                 if (status) {
-                    btnChat.disabled = "";
+                    
                 }
             });
         }
 
         window.onload = init;
+
+        function DataPointRecv(x, y) {
+            alert("datapoints received");
+        }
 
         var isMouseDown = false;
         function drawArc(context, x, y) {
@@ -58,8 +62,7 @@
             var canvas = document.getElementById("blackboard-canvas");
             canvas.addEventListener("mousedown", onMouseDown, false);
             canvas.addEventListener('mouseup', onMouseUp, false);
-            canvas.addEventListener('mousemove', onMouseMove, false);
-            showColorPicker();
+            canvas.addEventListener('mousemove', onMouseMove, false);            
         }
         function onMouseMove(e) {
             if (!isMouseDown) return;
@@ -82,26 +85,9 @@
         function clearBoard() {
             var canvas = document.getElementById("blackboard-canvas");
             canvas.width = canvas.width;
-        }
-        function showColorPicker() {
-            var ctx = document.getElementById('color-picker').getContext('2d');
-            for (var i = 0; i < 30; i++) {
-                for (var j = 0; j < 30; j++) {
-                    ctx.fillStyle = 'rgb(' +
-				            ((i / 30 * 255) | 0) + ',' +
-				            ((j / 30 * 255) | 0) + ',50)';
-                    ctx.fillRect(i * 10, j * 10, 10, 10);
-                }
-            }
-            $('#color-picker').click(function (e) {
-                var data = ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data;
-                var rgb = 'rgb(' + [].slice.call(data, 0, 3).join() + ")";
-                var ctx2 = document.getElementById('blackboard-canvas').getContext('2d');
-                ctx2.strokeStyle = rgb;
+        }        
 
-            });
-
-        }
+        
         </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="SidePannel" runat="server">
