@@ -15,8 +15,13 @@
 
         window.onload = init;
 
-        function DataPointRecv(x, y) {
+        function DataPointRecv(points) {
             //alert("datapoints received");
+            var canvas = document.getElementById("blackboard-canvas");
+            var context = canvas.getContext("2d");
+            var x = points.X;
+            var y = points.Y;           
+            context.fillRect(x - 25, y - 25, 50, 50);
         }
 
         var isMouseDown = false;
@@ -37,7 +42,10 @@
             //context.strokeRect(x-25,y-25,50,50);
             //drawArc(context,x,y);
 
-            Draw.sendPoints(x, y);
+            var points = new DataMessage(x, y);
+            points.X = x;
+            points.Y = y;
+            Draw.sendPoints(points);
             
             return; //why is this here??
 

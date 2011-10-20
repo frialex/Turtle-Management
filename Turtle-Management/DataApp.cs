@@ -39,9 +39,9 @@ namespace Turtle_Management
 
         }
         
-        public void sendPoints(string x, string y)
+        public void sendPoints(DataMessage points)
         {
-            string json = JSON.Method("DataPointRecv", x.ToString() + ":" + y.ToString());
+            string json = JSON.Method("DataPointRecv", points);
             CometWorker.SendToAll(json);
         }
 
