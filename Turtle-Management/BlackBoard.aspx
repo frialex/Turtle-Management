@@ -16,7 +16,7 @@
         window.onload = init;
 
         function DataPointRecv(x, y) {
-            alert("datapoints received");
+            //alert("datapoints received");
         }
 
         var isMouseDown = false;
