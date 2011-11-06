@@ -1,7 +1,6 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BlackBoard.aspx.cs" Inherits="Turtle_Management.BlackBoard" %>
+
+    <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link type="text/css" href="css/cupertino/jquery-ui-1.8.16.custom.css" rel="stylesheet" />	
 		<link type="text/css" href="css/blackboard/layout.css" rel="stylesheet" />
@@ -24,8 +23,10 @@
 
 		
         <title>Blackboard</title>
-    </head>
-    <body>
+    </asp:Content>
+
+
+ <asp:Content ID="Content2" ContentPlaceHolderID="SidePannel" runat="server">
 		<div class="Container">
             <div id = 'left-div'>
                 <canvas class = "Blackboard" id = "blackboard-canvas" >
@@ -87,6 +88,10 @@
 	        })
 	    </script>
     
-    </body>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server" >
+
+</asp:Content>
     
-</html>
+
