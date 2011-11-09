@@ -60,7 +60,10 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="BlackBoard.aspx" />
     <Content Include="Class.aspx" />
+    <Content Include="FreePointDrawer.js" />
+    <Content Include="FreeRectangleDrawer.js" />
     <Content Include="Handler.aspx" />
+    <Content Include="IRender.js" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />

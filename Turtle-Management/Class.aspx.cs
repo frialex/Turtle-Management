@@ -27,6 +27,7 @@ namespace Turtle_Management
             turtle_user_name = User.Identity.Name.ToString();
             string ClassId = Request.QueryString["classid"];
 
+            //TODO: Why is it users can send messages across chatrooms??? THIS SHOULD NOT BE THE CASE!!!!
             CometWorker.OnClientConnected += new DefineClassObjects(CometWorker_OnClientConnected);
         }
     }
