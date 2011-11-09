@@ -2,18 +2,7 @@
     CodeBehind="Default.aspx.cs" Inherits="Turtle_Management._Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-    <script type="text/javascript">
 
-        function test() {
-            var example = document.getElementById('example');
-            var context = example.getContext('2d');
-            context.fillStyle = "rgb(255,0,0)";
-            context.fillRect(30, 30, 50, 50);
-        }
-
-        window.onload = test;
-
-    </script>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="SidePannel">
     <asp:LoginView id="loginview" runat="server">
@@ -63,9 +52,6 @@
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
             </div>
-            <canvas id="example" width="200" height="200">
-            This text is displayed if your browser does not support HTML5 Canvas.
-            </canvas>
         </LoggedInTemplate>
         <AnonymousTemplate>
         </AnonymousTemplate>
