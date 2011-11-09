@@ -14,7 +14,11 @@ function BlackboardCanvas(canvasId){
     
     //holds all observers
     this.observers = {};
- }
+}
+
+function canvas_points_receved_from_server(points) {
+    alert("pass on to FreePointDrawer.js somehow");
+}
 
 BlackboardCanvas.prototype.onMouseDown = function(e){
 	var context = this.canvasContext;

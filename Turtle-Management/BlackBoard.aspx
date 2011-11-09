@@ -31,6 +31,12 @@
                     }
                 });
             }
+
+            function DataPointRecv(points) {
+                //                alert("data point received" + points.toString());
+
+                canvas_points_receved_from_server(points);
+            }
         </script>
 		
         <title>Blackboard</title>
