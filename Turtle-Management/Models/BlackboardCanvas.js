@@ -17,8 +17,16 @@ function BlackboardCanvas(canvasId){
 }
 
 function canvas_points_receved_from_server(points) {
-    alert("pass on to FreePointDrawer.js somehow");
+    //    alert("pass on to FreePointDrawer.js somehow");
+
+    var test = this.observers;
+    $.each(test, function (index, value) {
+        test2 = value;
+        value.server_draw(points);
+    });    
+
 }
+
 
 BlackboardCanvas.prototype.onMouseDown = function(e){
 	var context = this.canvasContext;
@@ -53,8 +61,9 @@ BlackboardCanvas.prototype.setLineWidth = function(width){
 BlackboardCanvas.prototype.setLineCap = function(type){
 	this.canvasContext.lineCap = type;
 }
-BlackboardCanvas.prototype.attachObserver = function(render){ 
-	if(render) this.observers[render.id()] = render; 
+BlackboardCanvas.prototype.attachObserver = function (render) {
+    if (render) this.observers[render.id()] = render;
+    window.observers = this.observers;
 }
 BlackboardCanvas.prototype.detachObserver = function(render){
 	if(render) delete this.observers[render.id()];

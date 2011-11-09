@@ -27,12 +27,18 @@ FreePointDrawer.prototype.onDraw = function(position,context){
     Draw.sendPoints(points);
 }
 
+FreePointDrawer.prototype.server_draw = function (position) {
+    this.DataPointRecv(position);
+    context.lineTo(position.X, position.Y);
+    context.stroke();
+
+}
+
 FreePointDrawer.prototype.DataPointRecv = function (points) {
     var canvas = document.getElementById("blackboard-canvas");
     var context = canvas.getContext('2d');
 
-    context.lineTo(points.X, points.Y);
-    context.stroke();
+    context.fillRect(points.X, points.Y, 10, 10);
 }
 
 FreePointDrawer.prototype.onMouseDown = function(mouseEvent,context){
