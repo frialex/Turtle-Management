@@ -22,6 +22,16 @@
 		<script type="text/javascript" src="CanvasDrawReasoner/FreePointDrawer.js"></script>
 
         <script src="Handler.aspx?ms=connect" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            document.OnPokeInReady = function () {
+                PokeIn.Start(function (status) {
+                    if (status) {
+                        
+                    }
+                });
+            }
+        </script>
 		
         <title>Blackboard</title>
     </asp:Content>
@@ -34,7 +44,7 @@
 
                 </canvas>
             </div>                  
-          <%--  <div id='right-div'>
+            <div id='right-div'>
                 <div id = 'tools-div'>
                     <ul>
                         <li><a href='#colorOption-accordion'>Color Options</a></li>
@@ -77,7 +87,7 @@
                     </div>
                     
                 </div>
-            </div>--%>
+            </div>
 
             <br style="clear:both;"/>
         </div>  

@@ -19,8 +19,22 @@ FreePointDrawer.prototype.onDraw = function(position,context){
 	}else{ //else resume from point before
 		context.lineTo(x, y);
         context.stroke();
-	}
+    }
+
+    var points = new DataMessage(x, y);
+    points.X = x;
+    points.Y = y;
+    Draw.sendPoints(points);
 }
+
+FreePointDrawer.prototype.DataPointRecv = function (points) {
+    var canvas = document.getElementById("blackboard-canvas");
+    var context = canvas.getContext('2d');
+
+    context.lineTo(points.X, points.Y);
+    context.stroke();
+}
+
 FreePointDrawer.prototype.onMouseDown = function(mouseEvent,context){
 	this.isMouseDown = true;
 	var mousePosition = convertMousePositionFromMouseEvent(mouseEvent);

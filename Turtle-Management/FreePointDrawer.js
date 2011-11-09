@@ -8,18 +8,24 @@ FreePointDrawer.prototype = new IRender();
 FreePointDrawer.prototype.constructor = FreePointDrawer;
 
 //Derived functions
-FreePointDrawer.prototype.onDraw = function(position,context){
-	var x = position.x;
-	var y = position.y;
-	//if not setup, setup
-	if(!this.hasDrawingStarted){
-		this.hasDrawingStarted = true;
-		context.beginPath();
+FreePointDrawer.prototype.onDraw = function (position, context) {
+    var x = position.x;
+    var y = position.y;
+    //if not setup, setup
+    if (!this.hasDrawingStarted) {
+        this.hasDrawingStarted = true;
+        context.beginPath();
         context.moveTo(x, y);
-	}else{ //else resume from point before
-		context.lineTo(x, y);
+    } else { //else resume from point before
+        context.lineTo(x, y);
         context.stroke();
-	}
+    }
+
+    var points = new DataMessage(x, y);
+    points.X = x;
+    points.Y = y;
+    Draw.sendPoints(points);
+
 }
 FreePointDrawer.prototype.onMouseDown = function(mouseEvent,context){
 	this.isMouseDown = true;
