@@ -21,7 +21,7 @@
 		<script type="text/javascript" src="CanvasDrawReasoner/FreeRectangleDrawer.js"></script>
 		<script type="text/javascript" src="CanvasDrawReasoner/FreePointDrawer.js"></script>
 
-        <script src="Handler.aspx?ms=connect" type="text/javascript"></script>
+        <script src="ChatHandler.aspx?ms=connect" type="text/javascript"></script>
 
         <script type="text/javascript">
             document.OnPokeInReady = function () {

@@ -14,7 +14,8 @@ namespace Turtle_Management
 
         static void _class()
         {
-            CometWorker.OnClientConnected += new DefineClassObjects(CometWorker_OnClientConnected);
+            //CometWorker.OnClientConnected += new DefineClassObjects(CometWorker_OnClientConnected);
+            var test = "does it break here?";
         }
 
         static void CometWorker_OnClientConnected(ConnectionDetails details, ref Dictionary<string, object> classList)
@@ -28,7 +29,7 @@ namespace Turtle_Management
             string ClassId = Request.QueryString["classid"];
 
             //TODO: Why is it users can send messages across chatrooms??? THIS SHOULD NOT BE THE CASE!!!!
-            //CometWorker.OnClientConnected += new DefineClassObjects(CometWorker_OnClientConnected);
+            CometWorker.OnClientConnected += new DefineClassObjects(CometWorker_OnClientConnected);
         }
     }
 }

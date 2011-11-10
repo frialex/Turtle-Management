@@ -33,8 +33,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="PokeIn">
-      <HintPath>dll\PokeIn.dll</HintPath>
+    <Reference Include="PokeIn, Version=1.5.9.0, Culture=neutral, PublicKeyToken=6934e7efe97d2148, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\PokeIn.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -62,7 +63,7 @@
     <Content Include="Class.aspx" />
     <Content Include="FreePointDrawer.js" />
     <Content Include="FreeRectangleDrawer.js" />
-    <Content Include="Handler.aspx" />
+    <Content Include="ChatHandler.aspx" />
     <Content Include="IRender.js" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -70,7 +71,9 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -140,12 +143,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Handler.aspx.cs">
-      <DependentUpon>Handler.aspx</DependentUpon>
+    <Compile Include="ChatHandler.aspx.cs">
+      <DependentUpon>ChatHandler.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Handler.aspx.designer.cs">
-      <DependentUpon>Handler.aspx</DependentUpon>
+    <Compile Include="ChatHandler.aspx.designer.cs">
+      <DependentUpon>ChatHandler.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

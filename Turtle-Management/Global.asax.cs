@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using PokeIn.Comet;
 
 namespace Turtle_Management
 {
@@ -12,8 +13,17 @@ namespace Turtle_Management
 
         void Application_Start(object sender, EventArgs e)
         {
-            // Code that runs on application startup
+            //// Code that runs on application startup
+            CometWorker.OnClientConnected += new DefineClassObjects(CometWorker_OnClientConnected);
+            //CometWorker.OnReConnectionDecision += new DecisionDelegate(CometWorker_OnReConnectionDecision);
+            CometSettings.ReConnectToSameInstanceTimeout = 6500;
 
+        }
+
+        void CometWorker_OnClientConnected(ConnectionDetails details, ref Dictionary<string, object> classList)
+        {
+            //classList.Add("Chat", new ChatApp(details.ClientId));
+            var test = "checking for break";
         }
 
         void Application_End(object sender, EventArgs e)
