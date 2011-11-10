@@ -81,14 +81,14 @@
          }
      }
 
-//     info.onkeydown = function (ev) {
-//         if (btnChat.disabled != "")
-//             return;
-//         var ev = ev || window.event;
-//         if (ev.keyCode == 13) {
-//             btnChat.onclick();
-//         }
-//     }
+     info.onkeydown = function (ev) {
+         if (btnChat.disabled != "")
+             return;
+         var ev = ev || window.event;
+         if (ev.keyCode == 13) {
+             btnChat.onclick();
+         }
+     }
 
 
      function ChatMessageFrom(chatMessage) {

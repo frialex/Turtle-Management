@@ -38,7 +38,7 @@ FreePointDrawer.prototype.DataPointRecv = function (points) {
     var canvas = document.getElementById("blackboard-canvas");
     var context = canvas.getContext('2d');
 
-    context.fillRect(points.X, points.Y, 10, 10);
+    context.fillRect(points.X, points.Y, 2, 2);
 }
 
 FreePointDrawer.prototype.onMouseDown = function(mouseEvent,context){
