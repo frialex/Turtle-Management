@@ -85,7 +85,7 @@ namespace Turtle_Management
             //string json = json.method("start_line", point);
            
             string json = JSON.Method("startline", points);
-            CometWorker.SendToAll(json);
+            //CometWorker.SendToAll(json);
             CometWorker.Groups.Send("TimeChannel", json);
 
         }
@@ -93,7 +93,7 @@ namespace Turtle_Management
         public void resumeline(DataMessage points)
         {
             string json = JSON.Method("resumeline", points);
-            CometWorker.SendToAll(json);
+            //CometWorker.SendToAll(json);
             CometWorker.Groups.Send("TimeChannel", json);
         }
 
