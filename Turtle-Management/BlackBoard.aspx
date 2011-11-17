@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BlackBoard.aspx.cs" Inherits="Turtle_Management.BlackBoard"  EnableSessionState="ReadOnly"%>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master"  CodeBehind="BlackBoard.aspx.cs" Inherits="Turtle_Management.BlackBoard"  EnableSessionState="False" AutoEventWireup="true" %>
 
     <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
