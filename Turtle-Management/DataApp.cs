@@ -32,30 +32,30 @@ namespace Turtle_Management
 
         static DataApp()
         {
-            new Thread(delegate()
-            {
-               while (true)
-               {
-                   Random random = new Random(200); ;
+            //new Thread(delegate()
+            //{
+            //   while (true)
+            //   {
+            //       Random random = new Random(200); ;
 
-                   int x = random.Next(0, 100);
-                   int y = random.Next(0, 100);
-                   DataMessage starting_point = new DataMessage(x, y);
+            //       int x = random.Next(0, 100);
+            //       int y = random.Next(0, 100);
+            //       DataMessage starting_point = new DataMessage(x, y);
 
-                   string jsonMethod = JSON.Method("startline", starting_point);
-                   CometWorker.Groups.Send("TimeChannel", jsonMethod);
+            //       string jsonMethod = JSON.Method("startline", starting_point);
+            //       CometWorker.Groups.Send("TimeChannel", jsonMethod);
 
-                   int x_to = random.Next(0, 100);
-                   int y_to = random.Next(0, 100);
-                   DataMessage to_point = new DataMessage(x, y);
+            //       int x_to = random.Next(0, 100);
+            //       int y_to = random.Next(0, 100);
+            //       DataMessage to_point = new DataMessage(x, y);
 
-                   string jsonMethod_to = JSON.Method("resumeline", to_point);
-                   CometWorker.Groups.Send("TimeChannel", jsonMethod_to);
-                   //string jsonMethod = JSON.Method("UpdateTime", DateTime.Now.Ticks);
-                   //CometWorker.Groups.Send("TimeChannel", jsonMethod);
-                   Thread.Sleep(10000);
-               }
-            }).Start();
+            //       string jsonMethod_to = JSON.Method("resumeline", to_point);
+            //       CometWorker.Groups.Send("TimeChannel", jsonMethod_to);
+            //       //string jsonMethod = JSON.Method("UpdateTime", DateTime.Now.Ticks);
+            //       //CometWorker.Groups.Send("TimeChannel", jsonMethod);
+            //       Thread.Sleep(10000);
+            //   }
+            //}).Start();
         }
 
         public DataApp(string clientId)
