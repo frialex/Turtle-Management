@@ -10,3 +10,29 @@ Thursday, November 17, 2011 | 11:53:12 AM :
 Application is recycling. Active client count: 1
 Thursday, November 17, 2011 | 12:02:25 PM : 
 Application is recycling. Active client count: 1
+Thursday, November 17, 2011 | 1:25:30 PM : 
+Application is recycling. Active client count: 2
+Thursday, November 17, 2011 | 1:36:01 PM : 
+Application is recycling. Active client count: 2
+Thursday, November 17, 2011 | 1:39:07 PM : 
+Application is recycling. Active client count: 2
+Thursday, November 17, 2011 | 1:46:05 PM : 
+Application is recycling. Active client count: 3
+Thursday, November 17, 2011 | 2:01:44 PM : 
+Application is recycling. Active client count: 2
+Thursday, November 17, 2011 | 2:09:43 PM : 
+DynamicBind : The server side classes are not defined in Definition(OnClientConnected) process.
+Thursday, November 17, 2011 | 2:09:46 PM : 
+Application is recycling. Active client count: 1
+Thursday, November 17, 2011 | 2:10:32 PM : 
+DynamicBind : The server side classes are not defined in Definition(OnClientConnected) process.
+Thursday, November 17, 2011 | 2:10:44 PM : 
+DynamicBind : The server side classes are not defined in Definition(OnClientConnected) process.
+Thursday, November 17, 2011 | 2:10:56 PM : 
+DynamicBind : The server side classes are not defined in Definition(OnClientConnected) process.
+Thursday, November 17, 2011 | 2:19:09 PM : 
+DynamicBind : The server side classes are not defined in Definition(OnClientConnected) process.
+Thursday, November 17, 2011 | 3:40:19 PM : 
+Application is recycling. Active client count: 1
+Thursday, November 17, 2011 | 3:45:26 PM : 
+Application is recycling. Active client count: 1

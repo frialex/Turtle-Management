@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BlackBoard.aspx.cs" Inherits="Turtle_Management.BlackBoard" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BlackBoard.aspx.cs" Inherits="Turtle_Management.BlackBoard"  EnableSessionState="ReadOnly"%>
 
     <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -45,7 +45,7 @@
             }
 
             function startline(points) {
-                alert("Startline recv : " + points.toString());
+//                alert("Startline recv : " + points.toString());
                 var test = points;
                 canvas_start_line(points)
             }

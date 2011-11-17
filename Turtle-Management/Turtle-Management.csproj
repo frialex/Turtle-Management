@@ -82,10 +82,7 @@
     <Content Include="css\cupertino\images\ui-icons_72a7cf_256x240.png" />
     <Content Include="css\cupertino\images\ui-icons_ffffff_256x240.png" />
     <Content Include="css\cupertino\jquery-ui-1.8.16.custom.css" />
-    <Content Include="FreePointDrawer.js" />
-    <Content Include="FreeRectangleDrawer.js" />
     <Content Include="ChatHandler.aspx" />
-    <Content Include="IRender.js" />
     <Content Include="js\blackboard.js" />
     <Content Include="js\jquery-1.6.2.min.js" />
     <Content Include="js\jquery-ui-1.8.16.custom.min.js" />

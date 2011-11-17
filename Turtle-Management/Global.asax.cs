@@ -15,7 +15,7 @@ namespace Turtle_Management
         {
             CometWorker.OnClientConnected += new DefineClassObjects(CometWorker_OnClientConnected);
             CometWorker.OnReConnectionDecision += new DecisionDelegate(CometWorker_OnReConnectionDecision);
-            CometSettings.ReConnectToSameInstanceTimeout = 6500;
+            CometSettings.ReConnectToSameInstanceTimeout = 60;
         }
 
         static void CometWorker_OnReConnectionDecision(ConnectionDetails details, ref bool accepted)
@@ -27,6 +27,7 @@ namespace Turtle_Management
 
         static void CometWorker_OnClientConnected(ConnectionDetails details, ref Dictionary<string, object> classList)
         {
+            string[] url = details.UrlReferrer.Segments;
             classList.Add("Dummy", new DataApp(details.ClientId));
 
         }

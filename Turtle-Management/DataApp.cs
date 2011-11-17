@@ -36,9 +36,24 @@ namespace Turtle_Management
             {
                while (true)
                {
-                   //string jsonmethod = json.method("updatetime", datetime.now.ticks);
-                   //cometworker.groups.send("timechannel", jsonmethod);
-                   Thread.Sleep(1);
+                   Random random = new Random(200); ;
+
+                   int x = random.Next(0, 100);
+                   int y = random.Next(0, 100);
+                   DataMessage starting_point = new DataMessage(x, y);
+
+                   string jsonMethod = JSON.Method("startline", starting_point);
+                   CometWorker.Groups.Send("TimeChannel", jsonMethod);
+
+                   int x_to = random.Next(0, 100);
+                   int y_to = random.Next(0, 100);
+                   DataMessage to_point = new DataMessage(x, y);
+
+                   string jsonMethod_to = JSON.Method("resumeline", to_point);
+                   CometWorker.Groups.Send("TimeChannel", jsonMethod_to);
+                   //string jsonMethod = JSON.Method("UpdateTime", DateTime.Now.Ticks);
+                   //CometWorker.Groups.Send("TimeChannel", jsonMethod);
+                   Thread.Sleep(10000);
                }
             }).Start();
         }
@@ -68,8 +83,9 @@ namespace Turtle_Management
         public void startline(DataMessage points)
         {
             //string json = json.method("start_line", point);
+           
             string json = JSON.Method("startline", points);
-            //CometWorker.SendToAll(json);
+            CometWorker.SendToAll(json);
             CometWorker.Groups.Send("TimeChannel", json);
 
         }
@@ -77,7 +93,7 @@ namespace Turtle_Management
         public void resumeline(DataMessage points)
         {
             string json = JSON.Method("resumeline", points);
-            //CometWorker.SendToAll(json);
+            CometWorker.SendToAll(json);
             CometWorker.Groups.Send("TimeChannel", json);
         }
 
