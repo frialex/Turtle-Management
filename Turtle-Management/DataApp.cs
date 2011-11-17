@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using PokeIn;
 using PokeIn.Comet;
+using System.Threading;
 
 namespace Turtle_Management
 {
@@ -29,6 +30,19 @@ namespace Turtle_Management
     {
         string _clientId;
 
+        static DataApp()
+        {
+            new Thread(delegate()
+            {
+               while (true)
+               {
+                   //string jsonmethod = json.method("updatetime", datetime.now.ticks);
+                   //cometworker.groups.send("timechannel", jsonmethod);
+                   Thread.Sleep(1);
+               }
+            }).Start();
+        }
+
         public DataApp(string clientId)
         {
             _clientId = clientId;
@@ -39,10 +53,32 @@ namespace Turtle_Management
 
         }
         
+        //TODO: Remove this?
         public void sendPoints(DataMessage points)
         {
             string json = JSON.Method("DataPointRecv", points);
             CometWorker.SendToAll(json);
+        }
+
+        public void SubscribeToTimeChannel()
+        {
+            CometWorker.Groups.PinClientID(_clientId, "TimeChannel");
+        }
+
+        public void startline(DataMessage points)
+        {
+            //string json = json.method("start_line", point);
+            string json = JSON.Method("startline", points);
+            //CometWorker.SendToAll(json);
+            CometWorker.Groups.Send("TimeChannel", json);
+
+        }
+
+        public void resumeline(DataMessage points)
+        {
+            string json = JSON.Method("resumeline", points);
+            //CometWorker.SendToAll(json);
+            CometWorker.Groups.Send("TimeChannel", json);
         }
 
     }

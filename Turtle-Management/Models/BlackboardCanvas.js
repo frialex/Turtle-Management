@@ -16,15 +16,20 @@ function BlackboardCanvas(canvasId){
     this.observers = {};
 }
 
-function canvas_points_receved_from_server(points) {
-    //    alert("pass on to FreePointDrawer.js somehow");
-
-    var test = this.observers;
-    $.each(test, function (index, value) {
+function canvas_start_line(points) {
+    var context = document.getElementById("blackboard-canvas");
+    $.each(this.observers, function (index, value) {
         test2 = value;
-        value.server_draw(points);
-    });    
+        value.server_start_line(points);
+    });
+}
 
+function canvas_resume_line(points) {
+    var context = document.getElementById("blackboard-canvas");
+    $.each(this.observers, function (index, value) {
+        test2 = value;
+        value.server_resume_line(points);
+    });
 }
 
 

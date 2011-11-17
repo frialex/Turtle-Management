@@ -1,0 +1,19 @@
+-User not logged in
+	-Show the functionality is not available
+
+-User logged in as teacher
+	-Show user can draw on blackboard 
+	-Chat highlights users name
+	-Show a list of classes user is teaching
+	-Show user can create/remove events	
+
+-User logged in as student
+	-show user can't draw on canvas
+	-Show a list of classes user is enrolled in
+	-Show user can add and remove events
+
+
+-Main features
+	-Chat
+	-Blackboard
+	-Calandar

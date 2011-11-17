@@ -21,21 +21,38 @@
 		<script type="text/javascript" src="CanvasDrawReasoner/FreeRectangleDrawer.js"></script>
 		<script type="text/javascript" src="CanvasDrawReasoner/FreePointDrawer.js"></script>
 
-        <script src="ChatHandler.aspx?ms=connect" type="text/javascript"></script>
+        <script src="PokeIn.ashx?ms=connect&dt=<%=DateTime.Now.Millisecond.ToString()%>" type="text/javascript"></script>
 
         <script type="text/javascript">
             document.OnPokeInReady = function () {
                 PokeIn.Start(function (status) {
                     if (status) {
-                        
+                        if (PokeIn.IsConnected) {
+                            pCall['Dummy'].SubscribeToTimeChannel();
+                        }
+                        else {
+                            alert("This client is not connected!");
+                        }
                     }
                 });
             }
+
 
             function DataPointRecv(points) {
                 //                alert("data point received" + points.toString());
 
                 canvas_points_receved_from_server(points);
+            }
+
+            function startline(points) {
+                alert("Startline recv : " + points.toString());
+                var test = points;
+                canvas_start_line(points)
+            }
+
+            function resumeline(points) {
+                var test2 = points;
+                canvas_resume_line(points)
             }
         </script>
 		

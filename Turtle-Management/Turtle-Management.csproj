@@ -60,11 +60,42 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="BlackBoard.aspx" />
+    <Content Include="CanvasDrawReasoner\FreePointDrawer.js" />
+    <Content Include="CanvasDrawReasoner\FreeRectangleDrawer.js" />
+    <Content Include="CanvasDrawReasoner\IRender.js" />
     <Content Include="Class.aspx" />
+    <Content Include="Controller\AppController.js" />
+    <Content Include="Controller\ToolBoxController.js" />
+    <Content Include="css\blackboard\layout.css" />
+    <Content Include="css\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="css\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="css\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="css\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="css\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="css\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="css\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="css\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="css\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="css\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="css\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="css\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="css\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\cupertino\jquery-ui-1.8.16.custom.css" />
     <Content Include="FreePointDrawer.js" />
     <Content Include="FreeRectangleDrawer.js" />
     <Content Include="ChatHandler.aspx" />
     <Content Include="IRender.js" />
+    <Content Include="js\blackboard.js" />
+    <Content Include="js\jquery-1.6.2.min.js" />
+    <Content Include="js\jquery-ui-1.8.16.custom.min.js" />
+    <Content Include="js\underscore.js" />
+    <Content Include="js\utility.js" />
+    <Content Include="Models\BlackboardCanvas.js" />
+    <Content Include="Models\ColorChooser.js" />
+    <Content Include="Models\ImageIcon.js" />
+    <Content Include="Models\Toolbox.js" />
+    <Content Include="Models\ToolItem.js" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -174,7 +205,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1660</DevelopmentServerPort>
+          <DevelopmentServerPort>7984</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

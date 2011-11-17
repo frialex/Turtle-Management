@@ -11,19 +11,24 @@ namespace Turtle_Management
     public class Global : System.Web.HttpApplication
     {
 
-        void Application_Start(object sender, EventArgs e)
+        protected void Application_Start(object sender, EventArgs e)
         {
-            //// Code that runs on application startup
             CometWorker.OnClientConnected += new DefineClassObjects(CometWorker_OnClientConnected);
-            //CometWorker.OnReConnectionDecision += new DecisionDelegate(CometWorker_OnReConnectionDecision);
+            CometWorker.OnReConnectionDecision += new DecisionDelegate(CometWorker_OnReConnectionDecision);
             CometSettings.ReConnectToSameInstanceTimeout = 6500;
-
         }
 
-        void CometWorker_OnClientConnected(ConnectionDetails details, ref Dictionary<string, object> classList)
+        static void CometWorker_OnReConnectionDecision(ConnectionDetails details, ref bool accepted)
         {
-            //classList.Add("Chat", new ChatApp(details.ClientId));
-            var test = "checking for break";
+            //You may check the parameters from "details" object to decide accept 
+            //reconnection to same client id and its objects or not
+            accepted = true;
+        }
+
+        static void CometWorker_OnClientConnected(ConnectionDetails details, ref Dictionary<string, object> classList)
+        {
+            classList.Add("Dummy", new DataApp(details.ClientId));
+
         }
 
         void Application_End(object sender, EventArgs e)

@@ -9,31 +9,50 @@ FreePointDrawer.prototype.constructor = FreePointDrawer;
 
 //Derived functions
 FreePointDrawer.prototype.onDraw = function(position,context){
-	var x = position.x;
-	var y = position.y;
-	//if not setup, setup
-	if(!this.hasDrawingStarted){
-		this.hasDrawingStarted = true;
-		context.beginPath();
-        context.moveTo(x, y);
-	}else{ //else resume from point before
-		context.lineTo(x, y);
-        context.stroke();
-    }
+    var x = position.x;
+    var y = position.y;
 
     var points = new DataMessage(x, y);
     points.X = x;
     points.Y = y;
-    Draw.sendPoints(points);
+
+    //if not setup, setup
+    if (!this.hasDrawingStarted) {
+        this.hasDrawingStarted = true;
+        context.beginPath();
+        context.moveTo(x, y);
+        Dummy.startline(points);
+
+    } else { //else resume from point before
+        context.lineTo(x, y);
+        context.stroke();
+        Dummy.resumeline(points);
+    }
 }
 
-FreePointDrawer.prototype.server_draw = function (position) {
-    this.DataPointRecv(position);
+FreePointDrawer.prototype.server_start_line = function (position) {
+    //this.DataPointRecv(position);
+    //context.lineTo(position.X, position.Y);
+    //context.stroke();
+    var canvas = document.getElementById("blackboard-canvas");
+    var context = canvas.getContext('2d');
+    context.beginPath();
+    context.moveTo(position.X, position.Y);
+
+}
+
+FreePointDrawer.prototype.server_resume_line = function (position) {
+    //this.DataPointRecv(position);
+    //context.lineTo(position.X, position.Y);
+    //context.stroke();
+    var canvas = document.getElementById("blackboard-canvas");
+    var context = canvas.getContext('2d');
     context.lineTo(position.X, position.Y);
     context.stroke();
 
 }
 
+//TODO: Remove this?
 FreePointDrawer.prototype.DataPointRecv = function (points) {
     var canvas = document.getElementById("blackboard-canvas");
     var context = canvas.getContext('2d');

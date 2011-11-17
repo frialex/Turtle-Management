@@ -13,12 +13,13 @@ namespace Turtle_Management
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            CometWorker.OnClientConnected +=new DefineClassObjects(CometWorker_OnClientConnected);
+            //CometWorker.OnClientConnected +=new DefineClassObjects(CometWorker_OnClientConnected);
         }
 
         static void CometWorker_OnClientConnected(ConnectionDetails details, ref Dictionary<string, object> classList)
         {
-            classList.Add("Draw", new DataApp(details.ClientId));
+            //classList.Add("Draw", new DataApp(details.ClientId));
+            var test = "test for break";
         }
     }
 }
