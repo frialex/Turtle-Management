@@ -20,6 +20,8 @@
 		<script type="text/javascript" src="CanvasDrawReasoner/IRender.js"></script>
 		<script type="text/javascript" src="CanvasDrawReasoner/FreeRectangleDrawer.js"></script>
 		<script type="text/javascript" src="CanvasDrawReasoner/FreePointDrawer.js"></script>
+        <script type="text/javascript" src="CanvasDrawReasoner/TextDrawer.js"></script>
+		<script type="text/javascript" src="CanvasDrawReasoner/EraserDrawer.js"></script>
 
         <script src="PokeIn.ashx?ms=connect&dt=<%=DateTime.Now.Millisecond.ToString()%>" type="text/javascript"></script>
 
