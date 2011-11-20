@@ -8,10 +8,13 @@ function Toolbox(options){
 Toolbox.prototype.tag = function(){
 	return this.toolBox;
 }
-Toolbox.prototype.addItem = function(toolItem){
-	var imageIcon = toolItem.getImageIcon().tag();
+Toolbox.prototype.clear = function(){
+	this.toolBox.empty();
+}
+Toolbox.prototype.addItem = function(item){
+	//var item = toolItem.tag();
 	
-	var entry = $(document.createElement('td')).append( imageIcon );
+	var entry = $(document.createElement('td')).append( item );
 	//check if spaces are filled for the current row
 	if(this.itemCount % this.colSize == 0){
 		this.currentRow = $(document.createElement('tr')); //create a new row

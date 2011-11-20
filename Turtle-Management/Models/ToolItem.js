@@ -6,3 +6,6 @@ function ToolItem(options){
 ToolItem.prototype.getImageIcon = function(){
 	return this.imageIcon;
 }
+ToolItem.prototype.tag = function(){
+	return this.imageIcon.tag();
+}

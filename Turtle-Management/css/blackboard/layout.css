@@ -18,7 +18,7 @@ body{
 	-webkit-box-shadow: 5px 5px 5px #eff7fd;
 	box-shadow: 5px 5px 5px #eff7fd;
     
-    background-color: #F7FAFA;
+    background-color: white; /*#F7FAFA;*/
 
 };
 .Blackboard:active{

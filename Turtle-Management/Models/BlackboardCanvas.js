@@ -66,6 +66,12 @@ BlackboardCanvas.prototype.setLineWidth = function(width){
 BlackboardCanvas.prototype.setLineCap = function(type){
 	this.canvasContext.lineCap = type;
 }
+BlackboardCanvas.prototype.getFillSyle = function(){
+	return this.canvas.fillStyle;
+}
+BlackboardCanvas.prototype.getStrokeSyle = function(){
+	return this.canvas.strokeStyle;
+}
 BlackboardCanvas.prototype.attachObserver = function (render) {
     if (render) this.observers[render.id()] = render;
     window.observers = this.observers;
@@ -75,4 +81,21 @@ BlackboardCanvas.prototype.detachObserver = function(render){
 }
 BlackboardCanvas.prototype.detachAll = function(){
 	this.observers = {};
+}
+BlackboardCanvas.prototype.drawImage = function(url,dx,dy,dw,dh){
+	var image = new Image();
+	var that = this;
+	image.src = url;
+	image.onload = function(){
+		//set deafults
+		dx = dx || 0;
+		dy = dy || 0;
+		dw = dw || that.canvas.width;
+		dh = dh || that.canvas.height;
+		that.canvasContext.drawImage(image,dx,dy,dw,dh);
+	}
+}
+BlackboardCanvas.prototype.toImage = function(type){
+	type = type || "image/png";
+	return this.canvas.toDataURL(type);
 }

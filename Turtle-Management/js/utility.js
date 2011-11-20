@@ -50,3 +50,13 @@ function alertProperty(arg){
 function uniqueId(){
 	return (new Date()).getTime();
 }
+
+//returns a new jquery element object 
+function createElement(tagName){
+	return $(document.createElement(tagName));
+}
+function saveFile(strData){
+	var prevLoc = document.location.href;
+	document.location.href = strData;
+	document.localtion.href = prevLoc;
+}
