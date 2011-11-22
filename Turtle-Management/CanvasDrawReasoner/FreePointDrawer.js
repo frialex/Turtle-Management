@@ -33,35 +33,19 @@ FreePointDrawer.prototype.onDraw = function (position, context) {
 }
 
 FreePointDrawer.prototype.server_start_line = function (position) {
-    //this.DataPointRecv(position);
-    //context.lineTo(position.X, position.Y);
-    //context.stroke();
-
     var canvas = document.getElementById("blackboard-canvas");
     var context = canvas.getContext('2d');
-    canvas.setLineWidth(position.lineWidth);
+    context.setLineWidth(position.lineWidth);
     context.beginPath();
     context.moveTo(position.X, position.Y);
-
 }
 
 FreePointDrawer.prototype.server_resume_line = function (position) {
-    //this.DataPointRecv(position);
-    //context.lineTo(position.X, position.Y);
-    //context.stroke();
     var canvas = document.getElementById("blackboard-canvas");
     var context = canvas.getContext('2d');
+    context.setLineWidth(position.lineWidth);
     context.lineTo(position.X, position.Y);
     context.stroke();
-
-}
-
-//TODO: Remove this?
-FreePointDrawer.prototype.DataPointRecv = function (points) {
-    var canvas = document.getElementById("blackboard-canvas");
-    var context = canvas.getContext('2d');
-
-    context.fillRect(points.X, points.Y, 2, 2);
 }
 
 FreePointDrawer.prototype.onMouseDown = function(mouseEvent,context){
