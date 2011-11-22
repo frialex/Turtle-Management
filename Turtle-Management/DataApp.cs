@@ -12,7 +12,7 @@ namespace Turtle_Management
     public class DataMessage
     {
         public int X, Y, lineWidth, height;
-        string type;
+        public string type, senderId;
 
         public DataMessage()
         {

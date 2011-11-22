@@ -49,14 +49,17 @@
             };
 
             function startline(points) {
-//                alert("Startline recv : " + points.toString());
-                var test = points;
-                canvas_start_line(points)
+                var clientId = PokeIn.GetClientId();
+                var senderId = points.senderId;
+                if(clientId != senderId)
+                    canvas_start_line(points)
             }
 
-            function resumeline(points) {
-                var test2 = points;
-                canvas_resume_line(points)
+            function resumeline(points) {                
+                var clientId = PokeIn.GetClientId();
+                var senderId = points.senderId;
+                if (clientId != senderId)
+                    canvas_resume_line(points)
             }
 
             function erase(eraser) {
