@@ -27,7 +27,7 @@ namespace Turtle_Management
 
         static void CometWorker_OnClientConnected(ConnectionDetails details, ref Dictionary<string, object> classList)
         {
-            string[] url = details.UrlReferrer.Segments;
+            //string[] url = details.UrlReferrer.Segments;
             classList.Add("Dummy", new DataApp(details.ClientId));
 
         }

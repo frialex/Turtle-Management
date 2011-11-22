@@ -11,18 +11,20 @@ namespace Turtle_Management
     [Serializable]
     public class DataMessage
     {
-        public int X, Y;
+        public int X, Y, lineWidth;
 
         public DataMessage()
         {
             X = 0;
-            Y = 0;   
+            Y = 0;
+            lineWidth = 1;
         }
 
-        public DataMessage(int x, int y)
+        public DataMessage(int x, int y, int width)
         {
             X = x;
             Y = y;
+            lineWidth = width;
         }
     }
 

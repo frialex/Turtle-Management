@@ -8,13 +8,15 @@ FreePointDrawer.prototype = new IRender();
 FreePointDrawer.prototype.constructor = FreePointDrawer;
 
 //Derived functions
-FreePointDrawer.prototype.onDraw = function(position,context){
+FreePointDrawer.prototype.onDraw = function (position, context) {
     var x = position.x;
     var y = position.y;
+    var width = context.lineWidth;
 
-    var points = new DataMessage(x, y);
+    var points = new DataMessage(x, y, width);
     points.X = x;
     points.Y = y;
+    points.lineWidth = context.lineWidth;
 
     //if not setup, setup
     if (!this.hasDrawingStarted) {
@@ -34,8 +36,10 @@ FreePointDrawer.prototype.server_start_line = function (position) {
     //this.DataPointRecv(position);
     //context.lineTo(position.X, position.Y);
     //context.stroke();
+
     var canvas = document.getElementById("blackboard-canvas");
     var context = canvas.getContext('2d');
+    canvas.setLineWidth(position.lineWidth);
     context.beginPath();
     context.moveTo(position.X, position.Y);
 

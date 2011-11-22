@@ -31,6 +31,7 @@
                     if (status) {
                         if (PokeIn.IsConnected) {
                             pCall['Dummy'].SubscribeToTimeChannel();
+                            alert("Client Now connected!");
                         }
                         else {
                             alert("This client is not connected!");
@@ -39,12 +40,13 @@
                 });
             }
 
+            PokeIn.OnClose = function () {
+                alert("Server Disconnected :( !!!");
+            };
 
-            function DataPointRecv(points) {
-                //                alert("data point received" + points.toString());
-
-                canvas_points_receved_from_server(points);
-            }
+            PokeIn.SessionCloneDetected = function () {
+                alert("Clone Session Detected!!!");
+            };
 
             function startline(points) {
 //                alert("Startline recv : " + points.toString());
@@ -56,6 +58,7 @@
                 var test2 = points;
                 canvas_resume_line(points)
             }
+
         </script>
 		
         <title>Blackboard</title>
