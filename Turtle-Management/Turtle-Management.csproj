@@ -60,9 +60,11 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="BlackBoard.aspx" />
+    <Content Include="CanvasDrawReasoner\EraserDrawer.js" />
     <Content Include="CanvasDrawReasoner\FreePointDrawer.js" />
     <Content Include="CanvasDrawReasoner\FreeRectangleDrawer.js" />
     <Content Include="CanvasDrawReasoner\IRender.js" />
+    <Content Include="CanvasDrawReasoner\TextDrawer.js" />
     <Content Include="Class.aspx" />
     <Content Include="Controller\AppController.js" />
     <Content Include="Controller\ToolBoxController.js" />

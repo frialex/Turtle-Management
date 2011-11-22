@@ -59,6 +59,10 @@
                 canvas_resume_line(points)
             }
 
+            function erase(eraser) {
+                canvas_erase(eraser);
+            }
+
         </script>
 		
         <title>Blackboard</title>

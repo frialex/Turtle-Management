@@ -32,6 +32,22 @@ function canvas_resume_line(points) {
     });
 }
 
+function canvas_erase(eraser) {
+//    alert("ERASER!");
+
+    var test = eraser;
+    var context = document.getElementById("blackboard-canvas").getContext('2d');
+//    var ed = EraserDrawer(); //TODO: Cant instantiate new class? how does _updateRenderer work?
+//    ed.setWidth(10);
+//TODO: _updateRender for startline and resume line.. use freepoint drawer
+    toolboxController._updateRenderer(EraserDrawer);
+    _.each(this.observers, function (observer) {
+        var ob = observer;
+        ob.setWidth(eraser.lineWidth);
+        ob.setHeight(eraser.height);
+        ob._onRectangleErase(eraser.X, eraser.Y, context);
+    });
+}
 
 BlackboardCanvas.prototype.onMouseDown = function(e){
 	var context = this.canvasContext;

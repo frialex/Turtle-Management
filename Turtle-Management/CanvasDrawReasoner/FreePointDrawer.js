@@ -13,7 +13,7 @@ FreePointDrawer.prototype.onDraw = function (position, context) {
     var y = position.y;
     var width = context.lineWidth;
 
-    var points = new DataMessage(x, y, width);
+    var points = new DataMessage(x, y);
     points.X = x;
     points.Y = y;
     points.lineWidth = context.lineWidth;

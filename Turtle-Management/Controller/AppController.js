@@ -5,7 +5,7 @@ function AppController(){
 	this.colorChooserPanel = new ColorChooser('color-spectrum-canvas');
 	this.colorChooserPanel.addOnMouseClickedAndMovedListener(this.onColorChooserMouseClickedAndMoved);
 	
-	this.toolboxController = new ToolBoxController({
+	window.toolboxController = new ToolBoxController({
 		drawingCanvas: this.drawingPanel,
 		toolOptionView: $("#toolbar-option-view"),
 		toolBox: new Toolbox({col: 4}), 

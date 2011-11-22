@@ -13,16 +13,26 @@ function EraserDrawer(options){
 EraserDrawer.prototype = new IRender();
 EraserDrawer.prototype.constructor = EraserDrawer;
 
-EraserDrawer.prototype.onDraw = function(position,context){
-	//get center position of x and y
-	var x = position.x - this.width/2;
-	var y = position.y - this.height/2;
-	switch(this.type){
-		case 'rectangle': this._onRectangleErase(x,y,context); break;
-		case 'circle': 	  this._onCircleErase(position.x,position.y,context); break;
-		default:		  this._onRectangleErase(x,y,context);break;
-	}
-	
+EraserDrawer.prototype.onDraw = function (position, context) {
+    //get center position of x and y
+    var x = position.x - this.width / 2;
+    var y = position.y - this.height / 2;
+
+    var eraser = new DataMessage(position.x, position.y);
+    eraser.X = position.x;
+    eraser.Y = position.y;
+    eraser.type = this.type;
+    eraser.lineWidth = this.width;
+    eraser.height = this.height;
+
+    Dummy.erase(eraser);
+
+    switch (this.type) {
+        case 'rectangle': this._onRectangleErase(x, y, context); break;
+        case 'circle': this._onCircleErase(position.x, position.y, context); break;
+        default: this._onRectangleErase(x, y, context); break;
+    }
+
 }
 EraserDrawer.prototype.onMouseDown = function(mouseEvent,context){
 	this.isMouseDown = true;
