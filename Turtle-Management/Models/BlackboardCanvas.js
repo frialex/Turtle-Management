@@ -18,6 +18,7 @@ function BlackboardCanvas(canvasId){
 
 function canvas_start_line(points) {
     var context = document.getElementById("blackboard-canvas");
+    toolboxController._updateRenderer(FreePointDrawer);
     $.each(this.observers, function (index, value) {
         test2 = value;
         value.server_start_line(points);
@@ -26,6 +27,7 @@ function canvas_start_line(points) {
 
 function canvas_resume_line(points) {
     var context = document.getElementById("blackboard-canvas");
+    toolboxController._updateRenderer(FreePointDrawer);
     $.each(this.observers, function (index, value) {
         test2 = value;
         value.server_resume_line(points);
@@ -45,7 +47,7 @@ function canvas_erase(eraser) {
         var ob = observer;
         ob.setWidth(eraser.lineWidth);
         ob.setHeight(eraser.height);
-        ob._onRectangleErase(eraser.X, eraser.Y, context);
+        ob._onCircleErase(eraser.X, eraser.Y, context);
     });
 }
 
