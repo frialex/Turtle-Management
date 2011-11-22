@@ -35,7 +35,7 @@ FreePointDrawer.prototype.onDraw = function (position, context) {
 FreePointDrawer.prototype.server_start_line = function (position) {
     var canvas = document.getElementById("blackboard-canvas");
     var context = canvas.getContext('2d');
-    context.setLineWidth(position.lineWidth);
+    context.lineWidth = position.lineWidth;
     context.beginPath();
     context.moveTo(position.X, position.Y);
 }
@@ -43,7 +43,7 @@ FreePointDrawer.prototype.server_start_line = function (position) {
 FreePointDrawer.prototype.server_resume_line = function (position) {
     var canvas = document.getElementById("blackboard-canvas");
     var context = canvas.getContext('2d');
-    context.setLineWidth(position.lineWidth);
+    context.lineWidth = position.lineWidth;
     context.lineTo(position.X, position.Y);
     context.stroke();
 }
