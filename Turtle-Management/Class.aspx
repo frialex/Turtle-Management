@@ -76,6 +76,7 @@
              var message = new ChatMessage();
              message.Message = mess;
              message.Username = user_name;
+             message.classId = <%= ClassId %>
              Chat.Send(message);
              info.value = "";
          }
@@ -92,8 +93,13 @@
 
 
      function ChatMessageFrom(chatMessage) {
-         chatWind.innerHTML += "<strong>" + chatMessage.Username + "</strong>:: " + chatMessage.Message + "<br/>";
-         chatBase.scrollTop = chatWind.clientHeight;
+        var classId = <%= ClassId %>
+        var senderClassId = chatMessage.classId;
+        if(classId == senderClassId)
+        {
+            chatWind.innerHTML += "<strong>" + chatMessage.Username + "</strong>:: " + chatMessage.Message + "<br/>";
+            chatBase.scrollTop = chatWind.clientHeight;
+        }
      }
 
      function UserNameList_Updated(names) {

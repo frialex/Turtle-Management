@@ -10,6 +10,7 @@ namespace Turtle_Management
     public class ChatMessage
     {
         public string Username, Message;
+        public int classId;
 
         //You should define an Empty Consturctor to allow PokeIn to de-serialize
         public ChatMessage()
