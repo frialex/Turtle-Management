@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using PokeIn.Comet;
+using System.Data.SqlClient;
 
 namespace Turtle_Management
 {
@@ -12,6 +13,7 @@ namespace Turtle_Management
     {
         protected string turtle_user_name;
         protected string ClassId;
+        protected string className;
 
         static void _class()
         {
@@ -29,8 +31,17 @@ namespace Turtle_Management
             turtle_user_name = User.Identity.Name.ToString();
             ClassId = Request.QueryString["classid"];
 
-            //TODO: Why is it users can send messages across chatrooms??? THIS SHOULD NOT BE THE CASE!!!!
             CometWorker.OnClientConnected += new DefineClassObjects(CometWorker_OnClientConnected);
+
+            System.Configuration.ConnectionStringSettings conn_string = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ApplicationServices"];
+            SqlConnection connection = new SqlConnection(conn_string.ToString());
+            SqlCommand cmd = new SqlCommand("SELECT [class_lookup].class_name FROM [class_lookup] where ClassId=" + ClassId, connection);
+
+            connection.Open();
+           
+            className = (string)cmd.ExecuteScalar();
+
+            connection.Close();
         }
     }
 }

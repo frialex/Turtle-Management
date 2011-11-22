@@ -8,7 +8,7 @@
     <div id="ChatBase" style="width: 400px;
         height: 400px; overflow-y: scroll; overflow-x: hidden; border: solid 1px #006699;">
         <div id="Chats" class="white" style="margin: 0px; padding: 5px; width: 380px;">
-            Welcome to: CLASS NAME <br />
+            Welcome to: <%= className %> <br />
         </div>
     </div>
     <input id="info" style="position: relative; border: solid 1px #006699;" type="text" />
