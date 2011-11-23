@@ -10,30 +10,30 @@
             <p>
                 <big>Calendar</big>
             </p>
-            <asp:Calendar ID="main_cal" runat="server" OnDayRender="main_cal_DayRender" Visible="True"
-                OnSelectionChanged="main_cal_SelectionChanged">
+            <asp:Calendar ID="main_cal" runat="server" OnDayRender="main_cal_DayRender" 
+                Visible="True">
                 <OtherMonthDayStyle ForeColor="LightGray"></OtherMonthDayStyle>
             </asp:Calendar>
-            <form id="form" method="post" action="Calendar.aspx">
-            <div id="AddTaskPane" style="position: fixed; top: 10px; right: 10px; visibility: hidden;
+            <div ID="AddTaskPane" style="position: fixed; top: 10px; right: 10px; visibility: hidden;
                 width: 200px; height: 100px;">
-                <asp:TextBox ID="TextBox1" runat="server" TextMode="SingleLine" onclick="onClick" />
+                <asp:TextBox ID="TextBox1" runat="server" onclick="onClick" 
+                    TextMode="SingleLine" />
                 <asp:TextBox ID="TextBox2" runat="server" CssClass="TextBox2" />
-                <asp:Button ID="Btn_AddTask" runat="server" Text="Add Task" OnClick="onClick" />
+                <asp:Button ID="Btn_AddTask" runat="server" OnClick="onClick" Text="Add Task" />
             </div>
-            <div id="edit_box" style="position: fixed; top: 10px; right: 10px; visibility: hidden;
+            <div ID="edit_box" style="position: fixed; top: 10px; right: 10px; visibility: hidden;
                 width: 300px; height: 300px">
-                <asp:TextBox ID="TextBox3" runat="server" TextMode="MultiLine" Height="300" Width="300"
-                    onclick="onClick" />
+                <asp:TextBox ID="TextBox3" runat="server" Height="300" onclick="onClick" 
+                    TextMode="MultiLine" Width="300" />
                 <asp:TextBox ID="TextBox4" runat="server" CssClass="TextBox4" />
                 <%--date --%>
                 <asp:TextBox ID="TextBox5" runat="server" CssClass="TextBox5" />
                 <%-- id --%>
-                <asp:Button ID="Button1" runat="server" Text="Edit" OnClick="onClick_edit" />
-                <asp:Button ID="Button2" runat="server" Text="Remove" OnClick="onClick_remove" />
+                <asp:Button ID="Button1" runat="server" OnClick="onClick_edit" Text="Edit" />
+                <asp:Button ID="Button2" runat="server" OnClick="onClick_remove" 
+                    Text="Remove" />
                 <asp:Button ID="Button3" runat="server" Text="Completed" />
             </div>
-            </form>
             <asp:Label ID="anchor" runat="server" onclick="onClick"></asp:Label>
             <div>
                 <style type="text/css">
@@ -77,9 +77,9 @@
 
                         document.getElementById("AddTaskPane").style.left = ev.clientX;
 
-                        var temp = document.getElementById("MainContent_TextBox2");
+                        var temp = document.getElementById("SidePannel_loginview_TextBox2");
 
-                        document.getElementById("MainContent_TextBox2").value = selectedDate;
+                        document.getElementById("SidePannel_loginview_TextBox2").value = selectedDate;
 
                     }
 
@@ -108,9 +108,9 @@
 
                         document.getElementById("edit_box").style.top = ev.clientY;
 
-                        document.getElementById("MainContent_TextBox4").value = selectedDate;
+                        document.getElementById("SidePannel_loginview_TextBox4").value = selectedDate;
 
-                        document.getElementById("MainContent_TextBox5").value = id;
+                        document.getElementById("SidePannel_loginview_TextBox5").value = id;
 
                     }
 
