@@ -59,7 +59,7 @@ namespace Turtle_Management
                 main_cal.OtherMonthDayStyle.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FF0000");
                 Btn_AddTask.Click += new EventHandler(this.onClick);
                 TextBox1.Attributes["onclick"] = "clearTextBox(this.id)";
-                TextBox3.Attributes["onclick"] = "clearTextBox(this.id)";
+                //TextBox3.Attributes["onclick"] = "clearTextBox(this.id)";
                 Button1.Click += new EventHandler(this.onClick_edit);
                 Button2.Click += new EventHandler(this.onClick_remove);
 
@@ -73,10 +73,7 @@ namespace Turtle_Management
             
         }
 
-        //private void InitializeComponent()
-        //{
-        //    this.Load += new System.EventHandler(this.Page_Load);
-        //}
+
 
         public void main_cal_DayRender(object sender, DayRenderEventArgs e)
         {
@@ -126,10 +123,10 @@ namespace Turtle_Management
                         string check = reader[1].ToString();
                         lb1.InnerHtml = check;
                         lb1.Title = "" + check + "";
-                        var tempo = reader[2].ToString();
+                        var id = reader[2].ToString();
 
-
-                        string n = "ShowEditBox(event,'" + e.Day.Date.ToShortDateString() + "','" + tempo + "')";
+                        
+                        string n = "ShowEditBox(event,'" + e.Day.Date.ToShortDateString() + "','" + id + "','" + reader[3].ToString() + "')";
                         lb1.HRef = "#";
                         lb1.Attributes.Add("onClick", n);
                         e.Cell.Controls.Add(lb1);
@@ -140,22 +137,6 @@ namespace Turtle_Management
                         e.Cell.Wrap = true;
                     }
 
-
-
-                    if (TextBox2.Text == temp1)
-                    {
-
-                        HtmlAnchor lb = new HtmlAnchor();
-                        lb.InnerHtml = reader[1].ToString();
-
-                        string n = "ShowEditBox(event,'" + e.Day.Date.ToShortDateString() + "')";
-                        lb.HRef = "#";
-                        lb.Attributes.Add("onClick", n);
-                        e.Cell.Controls.Add(lb);
-
-                        e.Cell.Wrap = true;
-
-                    }
                 }
 
 

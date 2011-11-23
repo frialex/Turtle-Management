@@ -98,7 +98,7 @@
                     }
 
 
-                    function ShowEditBox(e, selectedDate, id) {
+                    function ShowEditBox(e, selectedDate, id, update_text) {
 
                         var ev = e || window.event;
 
@@ -111,6 +111,8 @@
                         document.getElementById("SidePannel_loginview_TextBox4").value = selectedDate;
 
                         document.getElementById("SidePannel_loginview_TextBox5").value = id;
+
+                        document.getElementById("SidePannel_loginview_TextBox3").value = update_text;
 
                     }
 
