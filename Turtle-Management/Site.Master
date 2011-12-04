@@ -36,7 +36,7 @@
                             IncludeStyleBlock="false" Orientation="Horizontal">
                             <Items>
                                 <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
-                                <asp:MenuItem NavigateUrl="~/BlackBoard.aspx" Text="Blackboard"/>
+                                <asp:MenuItem NavigateUrl="~/Distance_Learning.aspx" Text="Distance Learning"/>
                             </Items>
                         </asp:Menu>
                     </div>

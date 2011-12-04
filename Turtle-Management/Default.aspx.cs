@@ -38,16 +38,7 @@ namespace Turtle_Management
                 Btn_AddTask = loginview.FindControl("Btn_AddTask") as Button;
                 //string key = Membership.GetUser(User.Identity.Name).ProviderUserKey.ToString();
 
-                System.Configuration.ConnectionStringSettings conn_string = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ApplicationServices"];
-                SqlConnection connection = new SqlConnection(conn_string.ToString());
-                SqlCommand cmd = new SqlCommand("SELECT [class_lookup].class_name, [class_lookup].ClassId FROM [class_lookup] JOIN [user-class] ON ([user-class].ClassId = [class_lookup].ClassId) WHERE [user-class].UserId = '" + Membership.GetUser(User.Identity.Name).ProviderUserKey.ToString() + "'", connection);
 
-                connection.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                GridView classGrid = mainContentLoginView.FindControl("classGrid") as GridView;
-                classGrid.DataSource = reader;
-                classGrid.DataBind();
 
 
 
