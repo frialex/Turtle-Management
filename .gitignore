@@ -5,3 +5,6 @@ aspnetdb_log.LDF
 #Temp files
 Turtle-Management/obj/
 Turtle-Management/bin/
+
+#logs
+PokeIn.log

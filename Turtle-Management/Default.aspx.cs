@@ -115,17 +115,33 @@ namespace Turtle_Management
                         lb1.InnerHtml = check;
                         lb1.Title = "" + check + "";
                         var id = reader[2].ToString();
+                        string edit_info = reader[3].ToString();
 
-                        
-                        string n = "ShowEditBox(event,'" + e.Day.Date.ToShortDateString() + "','" + id + "','" + reader[3].ToString() + "')";
-                        lb1.HRef = "#";
-                        lb1.Attributes.Add("onClick", n);
-                        e.Cell.Controls.Add(lb1);
-                        LiteralControl space1 = new LiteralControl();
-                        space1.Text = "<BR/>";
-                        e.Cell.Controls.Add(space1);
+                        if (edit_info == "")
+                        {
 
-                        e.Cell.Wrap = true;
+                            string l = "ShowEditBox(event,'" + e.Day.Date.ToShortDateString() + "','" + id + "','" + edit_info + "')";
+                            lb1.HRef = "#";
+                            lb1.Attributes.Add("onClick", l);
+                            e.Cell.Controls.Add(lb1);
+                            LiteralControl space2 = new LiteralControl();
+                            space2.Text = "<BR/>";
+                            e.Cell.Controls.Add(space2);
+
+                            e.Cell.Wrap = true;
+                        }
+                        else
+                        {
+                            string n = "ShowEditBox(event,'" + e.Day.Date.ToShortDateString() + "','" + id + "','" + edit_info + "')";
+                            lb1.HRef = "#";
+                            lb1.Attributes.Add("onClick", n);
+                            e.Cell.Controls.Add(lb1);
+                            LiteralControl space1 = new LiteralControl();
+                            space1.Text = "<BR/>";
+                            e.Cell.Controls.Add(space1);
+
+                            e.Cell.Wrap = true;
+                        }
                     }
 
                 }

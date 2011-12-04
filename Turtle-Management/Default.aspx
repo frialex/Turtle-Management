@@ -24,7 +24,7 @@
             <div ID="edit_box" style="position: fixed; top: 10px; right: 10px; visibility: hidden;
                 width: 300px; height: 300px">
                 <asp:TextBox ID="TextBox3" runat="server" Height="300" onclick="onClick" 
-                    TextMode="MultiLine" Width="300" />
+                    TextMode="MultiLine" Width="300" placeholder="Add Information Here..." />
                 <asp:TextBox ID="TextBox4" runat="server" CssClass="TextBox4" />
                 <%--date --%>
                 <asp:TextBox ID="TextBox5" runat="server" CssClass="TextBox5" />
@@ -113,6 +113,10 @@
                         document.getElementById("SidePannel_loginview_TextBox5").value = id;
 
                         document.getElementById("SidePannel_loginview_TextBox3").value = update_text;
+
+                        if (update_text == "Add Information Here...") {
+                            clearTextBox("SidePannel_loginview_TextBox3");
+                        }
 
                     }
 
