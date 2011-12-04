@@ -30,7 +30,12 @@
                 PokeIn.Start(function (status) {
                     if (status) {
                         if (PokeIn.IsConnected) {
-                            pCall['Dummy'].SubscribeToTimeChannel();
+                            var query = window.location.search.substring(1);
+                            var roomNum = query.substring(query.indexOf('=') + 1);
+
+                            alert(roomNum.toString());
+                            // pCall['Dummy'].SubscribeToTimeChannel();
+                            pCall['Dummy'].SubscribeToChannel(roomNum);
                             alert("Client Now connected!");
                         }
                         else {

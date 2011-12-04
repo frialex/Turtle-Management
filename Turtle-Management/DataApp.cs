@@ -30,7 +30,7 @@ namespace Turtle_Management
 
     public class DataApp : IDisposable
     {
-        string _clientId;
+        string _clientId, ChannelId;
 
         static DataApp()
         {
@@ -82,13 +82,19 @@ namespace Turtle_Management
             CometWorker.Groups.PinClientID(_clientId, "TimeChannel");
         }
 
+        public void SubscribeToChannel(string classId)
+        {
+            CometWorker.Groups.PinClientID(_clientId, classId.ToString());
+            this.ChannelId = classId;
+        }
+
         public void startline(DataMessage points)
         {
             //string json = json.method("start_line", point);
            
             string json = JSON.Method("startline", points);
             //CometWorker.SendToAll(json);
-            CometWorker.Groups.Send("TimeChannel", json);
+            CometWorker.Groups.Send(ChannelId, json);
 
         }
 
@@ -96,14 +102,14 @@ namespace Turtle_Management
         {
             string json = JSON.Method("resumeline", points);
             //CometWorker.SendToAll(json);
-            CometWorker.Groups.Send("TimeChannel", json);
+            CometWorker.Groups.Send(ChannelId, json);
         }
 
         public void erase(DataMessage eraser)
         {
             string json = JSON.Method("erase", eraser);
             //CometWorker.SendToAll(json);
-            CometWorker.Groups.Send("TimeChannel", json);
+            CometWorker.Groups.Send(ChannelId, json);
         }
 
     }
