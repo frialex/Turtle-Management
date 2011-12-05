@@ -17,7 +17,9 @@ FreePointDrawer.prototype.onDraw = function (position, context) {
     points.X = x;
     points.Y = y;
     points.lineWidth = context.lineWidth;
-    points.senderId = PokeIn.GetClientId(); 
+    points.senderId = PokeIn.GetClientId();
+    points.type = "NULL";
+    points.height = 0;
 
     //if not setup, setup
     if (!this.hasDrawingStarted) {

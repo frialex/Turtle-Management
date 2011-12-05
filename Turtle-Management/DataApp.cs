@@ -112,5 +112,12 @@ namespace Turtle_Management
             CometWorker.Groups.Send(ChannelId, json);
         }
 
+        public void startline2(DataMessage points)
+        {
+            string json = JSON.Method("onUpdateCanvasImageserver", points);
+            CometWorker.Groups.Send(ChannelId, json);
+            //CometWorker.SendToAll(json);
+        }
+
     }
 }

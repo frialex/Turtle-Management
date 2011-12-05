@@ -104,6 +104,7 @@ BlackboardCanvas.prototype.drawImage = function(url,dx,dy,dw,dh){
 	var image = new Image();
 	var that = this;
 	image.src = url;
+
 	image.onload = function(){
 		//set deafults
 		dx = dx || 0;

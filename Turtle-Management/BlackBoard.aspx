@@ -26,6 +26,9 @@
         <script src="PokeIn.ashx?ms=connect&dt=<%=DateTime.Now.Millisecond.ToString()%>" type="text/javascript"></script>
 
         <script type="text/javascript">
+
+            var server_image_link;
+
             document.OnPokeInReady = function () {
                 PokeIn.Start(function (status) {
                     if (status) {
@@ -33,7 +36,7 @@
                             var query = window.location.search.substring(1);
                             var roomNum = query.substring(query.indexOf('=') + 1);
 
-                            alert(roomNum.toString());
+                            //alert(roomNum.toString());
                             // pCall['Dummy'].SubscribeToTimeChannel();
                             pCall['Dummy'].SubscribeToChannel(roomNum);
                             alert("Client Now connected!");
@@ -70,6 +73,12 @@
             function erase(eraser) {
                 canvas_erase(eraser);
             }
+
+            function onUpdateCanvasImageserver(link) {
+                //alert(link); //TODO: WHY IS THIS BEING CALLED OVER AND OVER AGIN??
+                server_image_link = link.type;
+                toolboxController.onUpdateCanvasImage();
+            } 
 
         </script>
 		

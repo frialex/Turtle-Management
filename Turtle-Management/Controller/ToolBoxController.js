@@ -60,7 +60,7 @@ ToolBoxController.prototype.onLineIconClicked = function(){
 ToolBoxController.prototype.onUploadImageIconClicked = function(){
 	this.toolOptionView.empty();
 	this._createUploadImageSubOption();
-	this.toolOptionView.append( this.toolItemSubOptionTable.tag() );
+	//this.toolOptionView.append( this.toolItemSubOptionTable.tag() );
 	
 }
 ToolBoxController.prototype.onRectangleIconClicked = function(){
@@ -112,79 +112,79 @@ ToolBoxController.prototype._createEraserIconSubOption = function(){
 	this.toolItemSubOptionTable.addItem( createToolItem('Eraser-rectangle-icon.png',this.onRectangleEraserClicked));
 	this.toolItemSubOptionTable.addItem( createToolItem('Eraser-circle-icon.png',this.onCircleEraserClicked));	
 }
-ToolBoxController.prototype._createUploadImageSubOption = function(){
-	this.toolItemSubOptionTable	= null;//createSubOptionTable(1);
-	//create a view for inputting images from url 
-	var label = $(document.createElement('label'))
+ToolBoxController.prototype._createUploadImageSubOption = function () {
+    this.toolItemSubOptionTable = null;// createSubOptionTable(1);
+    //create a view for inputting images from url 
+    var label = $(document.createElement('label'))
 				.text('Image URL')
-				.css('padding-right','15px')
-	var urlField = $(document.createElement('input'))
-					.attr('type','text')
-					.attr('id','imageUrlField')
-					.css('margin','5px auto');
-/*
-	//create a upload button from file 
-	var browseFileButton = $(document.createElement('input'))
-						.attr('id','file-upload-button')
-						.attr('type','file')
-						.attr('name','pic')
-						.attr('id','pic-upload-button')
-						.attr('size','10')
-						.attr('width','5px')
-						.attr('accept','image/gif,image/png,image/jpg,image/jpeg,image/bmp')
-						.css('width','100%')
-						.css('margin','0px')
-						.css('padding','10px 0px 0px 0px');
-*/		
-	//create a preview view
-	var previewDiv = $(document.createElement('div'))
-					 .attr('id','image-preview-div')
-					 .css('background-color','gray')
-					 .css('margin','10px auto')
-					 .css('pading','5px')
-					 .css('width','200px')
-					 .css('height','100px');
-					 				
-	var updatePreviewButton = $(document.createElement('button'))
+				.css('padding-right', '15px')
+    var urlField = $(document.createElement('input'))
+					.attr('type', 'text')
+					.attr('id', 'imageUrlField')
+					.css('margin', '5px auto');
+
+    //create a preview view
+    var previewDiv = $(document.createElement('div'))
+					 .attr('id', 'image-preview-div')
+					 .css('background-color', 'gray')
+					 .css('margin', '10px auto')
+					 .css('pading', '5px')
+					 .css('width', '200px')
+					 .css('height', '100px');
+
+    var updatePreviewButton = $(document.createElement('button'))
 							  .text('update preview')
-							  .css('margin-left','15px')
-							  .css('padding','5px')
-							  .bind('click',this.onUpdateImagePreview);
-							  
-	var updateCanvasButton = $(document.createElement('button'))
+							  .css('margin-left', '15px')
+							  .css('padding', '5px')
+							  .bind('click', this.onUpdateImagePreview)
+                              .attr('type', 'button');
+
+
+    var updateCanvasButton = $(document.createElement('button'))
 							  .text('update canvas')
-							  .css('margin-left','15px')
-							  .css('padding','5px')
-							  .bind('click',this.onUpdateCanvasImage);
-							  
-	var wrapper = $(document.createElement('div'))
+							  .css('margin-left', '15px')
+							  .css('padding', '5px')
+							  .bind('click', this.onUpdateCanvasImage)
+                              .attr('type', 'button');
+
+    var wrapper = $(document.createElement('div'))
 					.append(label)
 					.append(urlField)
-					.css('margin','5px')
-					.css('padding','5px')
-					//.append(browseFileButton)
-					//.append(previewDiv)
-					//.append(updatePreviewButton)
-					//.css('border-size','0px');		
-		
-	this.toolOptionView.append( wrapper )
+					.css('margin', '5px')
+					.css('padding', '5px');
+
+
+    this.toolOptionView.append(wrapper)
 					   .append(previewDiv)
 					   .append(updatePreviewButton)
 					   .append(updateCanvasButton);
 
-	
+
 }
-ToolBoxController.prototype.onUpdateImagePreview = function(){
-	var imageUrl = $('#imageUrlField').val();
-	$("#image-preview-div")
-	.css('background-image','URL(' + imageUrl + ')')
-	.css('background-repeat','no-repeat')
-	.css('background-size','200px 100px');
+ToolBoxController.prototype.onUpdateImagePreview = function () {
+    var imageUrl = $('#imageUrlField').val();
+    server_image_link = imageUrl;
+    $("#image-preview-div")
+	.css('background-image', 'URL(' + imageUrl + ')')
+	.css('background-repeat', 'no-repeat')
+	.css('background-size', '200px 100px');
+
+
+
+    var x = 0;
+    var y = 0;
+    var link = new DataMessage(x, y);
+    link.type = server_image_link;
+    Dummy.startline2(link);
 }
-ToolBoxController.prototype.onUpdateCanvasImage = function(){
-	var url = $('#imageUrlField').val();
-	this.drawingCanvas.drawImage(url,0,0);
+ToolBoxController.prototype.onUpdateCanvasImage = function () {
+    var url = server_image_link; //$('#imageUrlField').val();
+    this.drawingCanvas.drawImage(url, 0, 0);
+
 }
+
+
+
 ToolBoxController.prototype.onDotSubOptionClicked = function(){
 	//create new renderer only if current on isn't a FreePointDrawer
 	if(this._updateRenderer(FreePointDrawer)){
