@@ -23,7 +23,7 @@
             </div>
             <div ID="edit_box" style="position: fixed; top: 10px; right: 10px; visibility: hidden;
                 width: 300px; height: 300px">
-                <asp:TextBox ID="TextBox3" runat="server" Height="300" onclick="onClick" 
+                <asp:TextBox ID="TextBox3" runat="server" Height="300"  
                     TextMode="MultiLine" Width="300" placeholder="Add Information Here..." />
                 <asp:TextBox ID="TextBox4" runat="server" CssClass="TextBox4" />
                 <%--date --%>
