@@ -19,6 +19,7 @@
                 <asp:TextBox ID="TextBox1" runat="server" onclick="onClick" 
                     TextMode="SingleLine" />
                 <asp:TextBox ID="TextBox2" runat="server" CssClass="TextBox2" />
+                <asp:TextBox ID="TextBox6" runat="server" CssClass="TextBox6" />
                 <asp:Button ID="Btn_AddTask" runat="server" OnClick="onClick" Text="Add Task" />
             </div>
             <div ID="edit_box" style="position: fixed; top: 10px; right: 10px; visibility: hidden;
@@ -32,7 +33,7 @@
                 <asp:Button ID="Button1" runat="server" OnClick="onClick_edit" Text="Edit" />
                 <asp:Button ID="Button2" runat="server" OnClick="onClick_remove" 
                     Text="Remove" />
-                <asp:Button ID="Button3" runat="server" Text="Completed" />
+                <asp:Button ID="Button3" runat="server" Text="Completed" OnClick="onClick_completed" />
             </div>
             <asp:Label ID="anchor" runat="server" onclick="onClick"></asp:Label>
             <div>
@@ -63,6 +64,12 @@
                     {
                         visibility: hidden;
                     }
+                    
+                    .TextBox6
+                    {
+                        visibility: hidden;
+                    }
+                    
                 </style>
                 <script type="text/javascript">
 
@@ -98,7 +105,7 @@
                     }
 
 
-                    function ShowEditBox(e, selectedDate, id, update_text) {
+                    function ShowEditBox(e, selectedDate, id, update_text, check) {
 
                         var ev = e || window.event;
 
@@ -113,6 +120,8 @@
                         document.getElementById("SidePannel_loginview_TextBox5").value = id;
 
                         document.getElementById("SidePannel_loginview_TextBox3").value = update_text;
+
+                        document.getElementById("SidePannel_loginview_TextBox6").value = check;
 
                         if (update_text == "Add Information Here...") {
                             clearTextBox("SidePannel_loginview_TextBox3");

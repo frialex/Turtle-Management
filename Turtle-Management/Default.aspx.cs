@@ -17,7 +17,7 @@ namespace Turtle_Management
     public partial class _Default : System.Web.UI.Page
     {
         DataTable table = new DataTable();
-        TextBox TextBox1, TextBox2, TextBox3, TextBox4, TextBox5;
+        TextBox TextBox1, TextBox2, TextBox3, TextBox4, TextBox5, TextBox6;
         Button Button1, Button2, Button3, Btn_AddTask;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -31,6 +31,7 @@ namespace Turtle_Management
                 TextBox3 = loginview.FindControl("TextBox3") as TextBox;
                 TextBox4 = loginview.FindControl("TextBox4") as TextBox;
                 TextBox5 = loginview.FindControl("TextBox5") as TextBox;
+                TextBox6 = loginview.FindControl("TextBox6") as TextBox;
 
                 Button1 = loginview.FindControl("Button1") as Button;
                 Button2 = loginview.FindControl("Button2") as Button;
@@ -53,6 +54,7 @@ namespace Turtle_Management
                 //TextBox3.Attributes["onclick"] = "clearTextBox(this.id)";
                 Button1.Click += new EventHandler(this.onClick_edit);
                 Button2.Click += new EventHandler(this.onClick_remove);
+                Button3.Click += new EventHandler(this.onClick_completed);
 
 
                 //if (!IsPostBack)
@@ -101,6 +103,19 @@ namespace Turtle_Management
                 space.Text = " <BR/> ";
                 e.Cell.Controls.Add(space);
 
+                if (e.Day.Date.DayOfWeek == DayOfWeek.Saturday || e.Day.Date.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    e.Cell.Text = "weekend";
+                }
+
+                if (e.Day.IsOtherMonth)   // if not day of that specific month, then you cant edit dates
+                {
+
+                    //e.Cell.Controls.Remove(a);
+                    e.Cell.Controls.Clear();
+
+                }
+
                 while (reader.Read())
                 {
 
@@ -112,6 +127,26 @@ namespace Turtle_Management
                     {
                         HtmlAnchor lb1 = new HtmlAnchor();
                         string check = reader[1].ToString();
+
+                        var checkaid = lb1.UniqueID;
+                        if (check.Length != 0 && check.Length > 9)
+                        {
+                            //string rev = check.Reverse;  //look into this
+                            string sub = check.Substring(0, 9);
+                            if (sub == "completed")
+                            {
+                                string character = char.ConvertFromUtf32(10004);
+                                //TextBox7.Text = check;
+                                string testtext = TextBox6.Text;
+                                check = "" + check + "" + character + "";
+                                //e.Cell.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFF00");
+                                //if (lb1.UniqueID == checkaid)
+                                //{
+                                lb1.Style["text-decoration"] = "line-through";
+                                //}
+                            }
+                        }
+
                         lb1.InnerHtml = check;
                         lb1.Title = "" + check + "";
                         var id = reader[2].ToString();
@@ -120,7 +155,7 @@ namespace Turtle_Management
                         if (edit_info == "")
                         {
 
-                            string l = "ShowEditBox(event,'" + e.Day.Date.ToShortDateString() + "','" + id + "','" + edit_info + "')";
+                            string l = "ShowEditBox(event,'" + e.Day.Date.ToShortDateString() + "','" + id + "','" + edit_info + "','" + check + "')";
                             lb1.HRef = "#";
                             lb1.Attributes.Add("onClick", l);
                             e.Cell.Controls.Add(lb1);
@@ -132,7 +167,7 @@ namespace Turtle_Management
                         }
                         else
                         {
-                            string n = "ShowEditBox(event,'" + e.Day.Date.ToShortDateString() + "','" + id + "','" + edit_info + "')";
+                            string n = "ShowEditBox(event,'" + e.Day.Date.ToShortDateString() + "','" + id + "','" + edit_info + "','" + check + "')";
                             lb1.HRef = "#";
                             lb1.Attributes.Add("onClick", n);
                             e.Cell.Controls.Add(lb1);
@@ -201,6 +236,26 @@ namespace Turtle_Management
             connection1.Open();
             delete_command.ExecuteNonQuery();
             Response.Redirect(Request.RawUrl);
+        }
+
+        protected void onClick_completed(object sender, EventArgs e)
+        {
+            string str = char.ConvertFromUtf32(169);
+            string clear = "completed " + TextBox6.Text + "";
+            string ahhh = "" + TextBox6.Text + " " + str + "";
+
+            //var one = e.ToString();
+            //string temp1 = TextBox4.Text;
+            //string c = TextBox5.Text;
+
+            System.Configuration.ConnectionStringSettings conn_string = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ApplicationServices"];
+            SqlConnection connection1 = new SqlConnection(conn_string.ToString());
+            string edit_query = "UPDATE [Calandar_Data] SET Data = '" + clear + "' WHERE ID = '" + TextBox5.Text + "'";
+            SqlCommand edit_command = new SqlCommand(edit_query, connection1);
+            connection1.Open();
+            edit_command.ExecuteNonQuery();
+            Response.Redirect(Request.RawUrl);
+            
         }
        
     }
